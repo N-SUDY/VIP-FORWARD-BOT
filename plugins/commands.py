@@ -70,7 +70,7 @@ async def cb_help(bot, cb):
 @Client.on_callback_query(filters.regex(r'^abt$'))   
 async def cb_abt(bot, cb):
     await cb.message.edit_text(script.ABOUT_TXT,
-
+    disable_web_page_preview = True,    
     reply_markup= back_btn
     )
 
