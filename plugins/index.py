@@ -84,7 +84,7 @@ async def run(bot, message):
             SKIP = await bot.ask(text = "Send me from where you want to start forwarding\nSend 0 for from beginning.", chat_id = message.from_user.id, filters=filters.text, timeout=30)
             print(SKIP.text)
         except TimeoutError:
-            await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /public")
+            await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         try:
             global skip_no
@@ -98,7 +98,7 @@ async def run(bot, message):
             LIMIT = await bot.ask(text = "Send me from Upto what extend(LIMIT) do you want to Index\nSend 0 for all messages.", chat_id = message.from_user.id, filters=filters.text, timeout=30)
             print(LIMIT.text)
         except TimeoutError:
-            await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /public")
+            await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         try:
             global limit_no
@@ -150,7 +150,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
         try:
             get_caption = await bot.ask(text = "Do you need a custom caption?\n\nIf yes , Send me caption \n\nif No send '0'", chat_id = query.from_user.id, filters=filters.text, timeout=30)
         except TimeoutError:
-            await bot.send_message(query.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /public")
+            await bot.send_message(query.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         input=get_caption.text
         if input == "0":
